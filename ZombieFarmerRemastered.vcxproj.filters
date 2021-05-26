@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="menu">
+      <UniqueIdentifier>{0d1cd132-1b65-4004-9929-11c4a0940768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gameMods">
+      <UniqueIdentifier>{71119cba-b8d7-4a57-a263-d569f48e8dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{94e86d73-1abc-4903-bd0d-3bfe728ca8c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{0803e85a-03be-4b4b-bcf5-06bfc785b52f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="gameMode.cpp">
+      <Filter>gameMods</Filter>
+    </ClCompile>
+    <ClCompile Include="GMStartMenu.cpp">
+      <Filter>gameMods</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menuManager.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menuObserver.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="engine.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gameMode.hpp">
+      <Filter>gameMods</Filter>
+    </ClInclude>
+    <ClInclude Include="GMStartMenu.hpp">
+      <Filter>gameMods</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menuManager.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menuObserver.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="olcPixelGameEngine.h">
+      <Filter>core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include=".gitignore" />
+  </ItemGroup>
+</Project>
