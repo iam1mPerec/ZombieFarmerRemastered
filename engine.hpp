@@ -1,17 +1,6 @@
 #pragma once
 #include "olcPixelGameEngine.h"
-
-enum class eColor {
-    primary,
-    secondary,
-    background,
-    highlight,
-    border,
-    font,
-    font_selected,
-    font_disabled,
-    font_disabled_selected
-};
+#include "eColors.hpp"
 
 struct EnumClassHash
 {
@@ -28,13 +17,16 @@ class engine : public olc::PixelGameEngine {
     //the engine would handle drawing and keyboard events
     class gameMode* m_mode;
 public:
+    //MARK: - My additions to olcPixelGameEngine
+    void drawBorder(int x, int y, int w, int h, olc::Pixel pixel, int thickness);
+    void clearLayers();
+
+    //MARK: - other staff
     engine();
     void begin();
     void setGameMode(class gameMode* newGameMode);
     bool OnUserCreate() override;
     bool OnUserUpdate(float fElapsedTime) override;
     ~engine();
-
-    static olc::Pixel getColor(eColor color);
 };
 

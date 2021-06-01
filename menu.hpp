@@ -29,7 +29,7 @@ public:
     long getNameLength() const;
     int getItemsCount() const;
     int getSelected() const;
-    int signal() const;
+    int getID() const;
     void setSelected(const bool value);
     bool isDisabled() const;
     bool isSelected() const;

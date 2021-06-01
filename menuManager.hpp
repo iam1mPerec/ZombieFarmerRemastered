@@ -1,31 +1,27 @@
 #pragma once
-#include "menu.hpp"
-#include "menuObserver.hpp"
 #include <stack>
+#include "UIManager.hpp"
+#include "menu.hpp"
+#include "observer.hpp"
+#include "eSignals.hpp"
 
-class menuManager {
-
-    static const long padding = 16;
-    
+class menuManager : public UIManager {
     menu m_menu;
     int m_currentIndex;
     std::stack<menu*> m_menuStack;
-    menuObserver m_observer;
-    long m_beginX, m_endX, m_beginY, m_endY;
+    observer<menu> m_observer;
     
 public:
-    menuManager();
+    menuManager(const long beginX, const long beginY, const long endX, const long endY, eColor bgColor);
     
     void setMenu(menu&& menu);
-    void setMenuDimensions(const long beginX, const long beginY, const long endX, const long endY);
-    
-    void draw(class engine* engine);
-    
+    void draw(class engine* engine) override;
+
     void submit();
     void quit();
     void next();
     void prev();
   
-    void dispatch(int signal);
-    menu* connect(menu* menu, std::function<void()> slot);
+    void checkCurrent(eSignals signal);
+    const menu& connect(const menu& menu, eSignals signal, std::function<void(class menu&)> slot);
 };

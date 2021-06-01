@@ -1,13 +1,13 @@
 #include "gameMode.hpp"
-#include "menuManager.hpp"
+
+const int gameMode::borderThickness = 3;
 
 gameMode::gameMode(const int maxWidth, const int maxHeight) :
 m_maxWidth(maxWidth),
 m_maxHeight(maxHeight),
 m_inProgress(true),
-m_menuManager(nullptr)
+m_newMode(nullptr)
 {
-    m_menuManager = new menuManager();
 }
 
 bool gameMode::inProgress() const {
@@ -15,5 +15,12 @@ bool gameMode::inProgress() const {
 }
 
 gameMode::~gameMode() {
-    delete m_menuManager;
+}
+
+bool gameMode::modeChanged() const {
+    return m_newMode? true : false;
+}
+
+gameMode* gameMode::getNewMode() const {
+    return m_newMode;
 }

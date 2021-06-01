@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="menu">
-      <UniqueIdentifier>{0d1cd132-1b65-4004-9929-11c4a0940768}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gameMods">
       <UniqueIdentifier>{71119cba-b8d7-4a57-a263-d569f48e8dc4}</UniqueIdentifier>
     </Filter>
@@ -16,6 +9,33 @@
     </Filter>
     <Filter Include="core">
       <UniqueIdentifier>{0803e85a-03be-4b4b-bcf5-06bfc785b52f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="enums">
+      <UniqueIdentifier>{2921f3c3-501a-4ddc-9b4d-beb18c6bf21a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{272ad10c-46e7-4eea-ac76-f52988747ee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="observer">
+      <UniqueIdentifier>{e87661e4-b8e2-4707-ab4c-6cade41d94ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\menu">
+      <UniqueIdentifier>{0d1cd132-1b65-4004-9929-11c4a0940768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\logger">
+      <UniqueIdentifier>{ce1c4a00-71d2-4c95-88c7-8265d68ad006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\time">
+      <UniqueIdentifier>{b994b9f1-bfdc-4551-a7f3-3716ad225eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\resources">
+      <UniqueIdentifier>{e75ac487-230b-4ee5-84c1-176b12f34cc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\screen">
+      <UniqueIdentifier>{84030919-9ae5-4079-914d-322f92b86de1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\tasks">
+      <UniqueIdentifier>{b96def32-02cd-41bc-908c-f39eb89bf26f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -26,19 +46,37 @@
       <Filter>gameMods</Filter>
     </ClCompile>
     <ClCompile Include="menu.cpp">
-      <Filter>menu</Filter>
+      <Filter>UI\menu</Filter>
     </ClCompile>
     <ClCompile Include="menuManager.cpp">
-      <Filter>menu</Filter>
-    </ClCompile>
-    <ClCompile Include="menuObserver.cpp">
-      <Filter>menu</Filter>
+      <Filter>UI\menu</Filter>
     </ClCompile>
     <ClCompile Include="engine.cpp">
       <Filter>engine</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="GMMain.cpp">
+      <Filter>gameMods</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="loggerManager.cpp">
+      <Filter>UI\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="resourcesManager.cpp">
+      <Filter>UI\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="screenManager.cpp">
+      <Filter>UI\screen</Filter>
+    </ClCompile>
+    <ClCompile Include="tasksManager.cpp">
+      <Filter>UI\tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="timeManager.cpp">
+      <Filter>UI\time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,19 +87,46 @@
       <Filter>gameMods</Filter>
     </ClInclude>
     <ClInclude Include="menu.hpp">
-      <Filter>menu</Filter>
+      <Filter>UI\menu</Filter>
     </ClInclude>
     <ClInclude Include="menuManager.hpp">
-      <Filter>menu</Filter>
-    </ClInclude>
-    <ClInclude Include="menuObserver.hpp">
-      <Filter>menu</Filter>
+      <Filter>UI\menu</Filter>
     </ClInclude>
     <ClInclude Include="engine.hpp">
       <Filter>engine</Filter>
     </ClInclude>
     <ClInclude Include="olcPixelGameEngine.h">
       <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="eSignals.hpp">
+      <Filter>enums</Filter>
+    </ClInclude>
+    <ClInclude Include="observer.hpp">
+      <Filter>observer</Filter>
+    </ClInclude>
+    <ClInclude Include="GMMain.hpp">
+      <Filter>gameMods</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="eColors.hpp">
+      <Filter>enums</Filter>
+    </ClInclude>
+    <ClInclude Include="loggerManager.hpp">
+      <Filter>UI\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcesManager.hpp">
+      <Filter>UI\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="screenManager.hpp">
+      <Filter>UI\screen</Filter>
+    </ClInclude>
+    <ClInclude Include="tasksManager.hpp">
+      <Filter>UI\tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="timeManager.hpp">
+      <Filter>UI\time</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

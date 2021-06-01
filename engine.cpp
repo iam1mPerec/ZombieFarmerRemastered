@@ -1,6 +1,16 @@
 #include "engine.hpp"
 #include "GMStartMenu.hpp"
 
+void engine::drawBorder(int x, int y, int w, int h, olc::Pixel pixel, int thickness) {
+    for (int i = 0; i < thickness; i++) {
+        DrawRect(x+i, y+i, w-2*i, h-2*i, pixel);
+    }
+}
+
+void engine::clearLayers() {
+    GetLayers().resize(1);
+}
+
 engine::engine() :
 m_mode(nullptr)
 {
@@ -18,9 +28,12 @@ void engine::setGameMode(gameMode* newGameMode) {
         delete m_mode;
     }
     m_mode = newGameMode;
+    clearLayers();
+    m_mode->DrawFrame(this);
 }
 
 bool engine::OnUserCreate() {
+    m_mode->DrawFrame(this);
     return true;
 }
 
@@ -33,7 +46,9 @@ bool engine::OnUserUpdate(float fElapsedTime) {
     if (GetKey(olc::Key::LEFT).bPressed || GetKey(olc::Key::A).bPressed) m_mode->left();
     if (GetKey(olc::Key::RIGHT).bPressed || GetKey(olc::Key::D).bPressed) m_mode->right();
     //MARK: - Update state
-    
+    if (m_mode->modeChanged()) {
+        setGameMode(m_mode->getNewMode());
+    }
     //MARK: - Render
     m_mode->Draw(this);
     
@@ -42,28 +57,4 @@ bool engine::OnUserUpdate(float fElapsedTime) {
 
 engine::~engine() {
     delete m_mode;
-}
-
-//MARK: - Palette
-olc::Pixel engine::getColor(eColor color) {
-    switch (color) {
-        case eColor::primary:
-            return olc::Pixel(32, 34, 37);
-        case eColor::secondary:
-            return olc::Pixel(54, 57, 63);
-        case eColor::background:
-            return olc::Pixel(47, 49, 54);
-        case eColor::highlight:
-            return olc::Pixel(57, 60, 67);
-        case eColor::border:
-            return olc::Pixel(66, 69, 74);
-        case eColor::font:
-            return olc::Pixel(115, 126, 140);
-        case eColor::font_selected:
-            return olc::Pixel(255, 255, 255);
-        case eColor::font_disabled:
-            return olc::Pixel(75, 75, 75);
-        case eColor::font_disabled_selected:
-            return olc::Pixel(125, 125, 125);
-    }
 }

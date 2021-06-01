@@ -2,45 +2,34 @@
 #include "engine.hpp"
 #include <iostream>
 
-menuManager::menuManager() :
-m_beginX(0),
-m_beginY(0),
-m_endX(0),
-m_endY(0),
+menuManager::menuManager(const long beginX, const long beginY, const long endX, const long endY, eColor color) :
+UIManager(beginX, beginY, endX, endY, color),
 m_currentIndex(0)
 {
-    
+    m_padding = 16;
 }
 
 void menuManager::setMenu(menu&& menu) {
-    std::cout << "start option address after moving: " << &menu["start"] << std::endl;
     m_menu = std::move(menu);
     m_menuStack.push(&m_menu);
     m_menuStack.top()->option(m_currentIndex).setSelected(true);
-}
-
-void menuManager::setMenuDimensions(const long beginX, const long beginY, const long endX, const long endY) {
-    m_beginX = beginX;
-    m_beginY = beginY;
-    m_endX = endX;
-    m_endY = endY;
 }
 
 void menuManager::draw(engine* engine) {
     olc::Pixel color;
     auto menu = *m_menuStack.top();
     for (int i = 0; i < menu.getItemsCount(); i++) {
-        if (menu.option(i).isSelected() && menu.option(i).isDisabled()) color = engine::getColor(eColor::font_disabled_selected);
-        else if (menu.option(i).isSelected()) color = engine::getColor(eColor::font_selected);
-        else if (menu.option(i).isDisabled()) color = engine::getColor(eColor::font_disabled);
-        else color = engine::getColor(eColor::font);
-        engine->DrawString((m_endX - m_beginX) / 2 - menu.option(i).getNameLength(), (m_endY - m_beginY) / 2 + i * padding, menu.option(i).getName(), color);
+        if (menu.option(i).isSelected() && menu.option(i).isDisabled()) color = getColor(eColor::font_disabled_selected);
+        else if (menu.option(i).isSelected()) color = getColor(eColor::font_selected);
+        else if (menu.option(i).isDisabled()) color = getColor(eColor::font_disabled);
+        else color = getColor(eColor::font);
+        engine->DrawString(m_stepsX / 2 - menu.option(i).getNameLength(), m_stepsY / 2 + i * m_padding, menu.option(i).getName(), color);
     }
 }
 
 //MARK: - controller
 void menuManager::submit() {
-    m_observer.dispatch(m_menuStack.top()->option(m_currentIndex).signal());
+    m_observer.dispatch(m_menuStack.top()->option(m_currentIndex), eSignals::click);
     if (!m_menuStack.top()->option(m_currentIndex).getItemsCount()) return;
     m_menuStack.push(&m_menuStack.top()->option(m_currentIndex));
     m_currentIndex = 0;
@@ -76,11 +65,13 @@ void menuManager::prev() {
 
 //MARK: - signal handling staff
 
-void menuManager::dispatch(int signal) {
-    m_observer.dispatch(signal);
+void menuManager::checkCurrent(eSignals signal) {
+    for (auto &option : m_menuStack.top()->option(m_currentIndex)) {
+        m_observer.dispatch(option, signal);
+    }
 }
 
-menu* menuManager::connect(menu* menu, std::function<void()> slot) {
-    m_observer.connect(menu->signal(), slot);
+const menu& menuManager::connect(const menu& menu, eSignals signal, std::function<void(class menu&)> slot) {
+    m_observer.connect(menu.getID(), signal, slot);
     return menu;
 }

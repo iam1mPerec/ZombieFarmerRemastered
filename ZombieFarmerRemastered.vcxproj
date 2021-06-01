@@ -143,20 +143,35 @@
   <ItemGroup>
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="gameMode.cpp" />
+    <ClCompile Include="GMMain.cpp" />
     <ClCompile Include="GMStartMenu.cpp" />
+    <ClCompile Include="loggerManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="menuManager.cpp" />
-    <ClCompile Include="menuObserver.cpp" />
+    <ClCompile Include="resourcesManager.cpp" />
+    <ClCompile Include="screenManager.cpp" />
+    <ClCompile Include="tasksManager.cpp" />
+    <ClCompile Include="timeManager.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="eColors.hpp" />
     <ClInclude Include="engine.hpp" />
+    <ClInclude Include="eSignals.hpp" />
     <ClInclude Include="gameMode.hpp" />
+    <ClInclude Include="GMMain.hpp" />
     <ClInclude Include="GMStartMenu.hpp" />
+    <ClInclude Include="loggerManager.hpp" />
     <ClInclude Include="menu.hpp" />
     <ClInclude Include="menuManager.hpp" />
-    <ClInclude Include="menuObserver.hpp" />
+    <ClInclude Include="observer.hpp" />
     <ClInclude Include="olcPixelGameEngine.h" />
+    <ClInclude Include="resourcesManager.hpp" />
+    <ClInclude Include="screenManager.hpp" />
+    <ClInclude Include="tasksManager.hpp" />
+    <ClInclude Include="timeManager.hpp" />
+    <ClInclude Include="UIManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include=".gitignore" />

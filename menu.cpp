@@ -42,7 +42,7 @@ int menu::getSelected() const {
     return 0;
 }
 
-int menu::signal() const {
+int menu::getID() const {
     return m_id;
 }
 
