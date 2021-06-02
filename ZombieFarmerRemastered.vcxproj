@@ -158,6 +158,7 @@
   <ItemGroup>
     <ClInclude Include="eColors.hpp" />
     <ClInclude Include="engine.hpp" />
+    <ClInclude Include="eResources.h" />
     <ClInclude Include="eSignals.hpp" />
     <ClInclude Include="gameMode.hpp" />
     <ClInclude Include="GMMain.hpp" />

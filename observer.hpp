@@ -20,7 +20,7 @@ observer<T>::observer() {
 
 template <typename T>
 void observer<T>::dispatch(T& sender, eSignals signal) {
-    m_events[signal][sender.getID()](sender);
+    if(m_events[signal][sender.getID()]) m_events[signal][sender.getID()](sender);
 }
 
 template <typename T>

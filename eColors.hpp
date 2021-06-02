@@ -2,7 +2,7 @@
 
 #include "engine.hpp"
 
-enum class eColor {
+enum class eColors {
     primary,
     secondary,
     background,
@@ -14,25 +14,25 @@ enum class eColor {
     font_disabled_selected
 };
 
-static olc::Pixel getColor(eColor color) {
+static olc::Pixel getColor(eColors color) {
     switch (color) {
-    case eColor::primary:
+    case eColors::primary:
         return olc::Pixel(32, 34, 37);
-    case eColor::secondary:
+    case eColors::secondary:
         return olc::Pixel(54, 57, 63);
-    case eColor::background:
+    case eColors::background:
         return olc::Pixel(47, 49, 54);
-    case eColor::highlight:
+    case eColors::highlight:
         return olc::Pixel(57, 60, 67);
-    case eColor::border:
+    case eColors::border:
         return olc::Pixel(66, 69, 74);
-    case eColor::font:
+    case eColors::font:
         return olc::Pixel(115, 126, 140);
-    case eColor::font_selected:
+    case eColors::font_selected:
         return olc::Pixel(255, 255, 255);
-    case eColor::font_disabled:
+    case eColors::font_disabled:
         return olc::Pixel(75, 75, 75);
-    case eColor::font_disabled_selected:
+    case eColors::font_disabled_selected:
         return olc::Pixel(125, 125, 125);
     }
 }

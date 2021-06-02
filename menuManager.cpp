@@ -2,11 +2,11 @@
 #include "engine.hpp"
 #include <iostream>
 
-menuManager::menuManager(const long beginX, const long beginY, const long endX, const long endY, eColor color) :
+menuManager::menuManager(const long beginX, const long beginY, const long endX, const long endY, eColors color) :
 UIManager(beginX, beginY, endX, endY, color),
 m_currentIndex(0)
 {
-    m_padding = 16;
+    m_padding = 8;
 }
 
 void menuManager::setMenu(menu&& menu) {
@@ -15,15 +15,19 @@ void menuManager::setMenu(menu&& menu) {
     m_menuStack.top()->option(m_currentIndex).setSelected(true);
 }
 
-void menuManager::draw(engine* engine) {
+void menuManager::draw(engine* Engine) {
+    if (m_menuStack.empty()) return;
     olc::Pixel color;
-    auto menu = *m_menuStack.top();
-    for (int i = 0; i < menu.getItemsCount(); i++) {
-        if (menu.option(i).isSelected() && menu.option(i).isDisabled()) color = getColor(eColor::font_disabled_selected);
-        else if (menu.option(i).isSelected()) color = getColor(eColor::font_selected);
-        else if (menu.option(i).isDisabled()) color = getColor(eColor::font_disabled);
-        else color = getColor(eColor::font);
-        engine->DrawString(m_stepsX / 2 - menu.option(i).getNameLength(), m_stepsY / 2 + i * m_padding, menu.option(i).getName(), color);
+    auto menu = m_menuStack.top();
+    for (int i = 0; i < menu->getItemsCount(); i++) {
+        if (menu->option(i).isSelected() && menu->option(i).isDisabled()) color = getColor(eColors::font_disabled_selected);
+        else if (menu->option(i).isSelected()) color = getColor(eColors::font_selected);
+        else if (menu->option(i).isDisabled()) color = getColor(eColors::font_disabled);
+        else color = getColor(eColors::font);
+
+        int height = menu->getItemsCount() * (m_padding + engine::charHeight) - m_padding;
+        Engine->DrawString(m_beginX + m_stepsX/2 - menu->option(i).getNameLength() * engine::charWidth, 
+            m_beginY + (m_stepsY - height)/ 2 + i*(m_padding + engine::charHeight), menu->option(i).getName(), color);
     }
 }
 

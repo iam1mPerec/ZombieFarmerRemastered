@@ -128,6 +128,9 @@
     <ClInclude Include="timeManager.hpp">
       <Filter>UI\time</Filter>
     </ClInclude>
+    <ClInclude Include="eResources.h">
+      <Filter>enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include=".gitignore" />

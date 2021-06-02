@@ -7,7 +7,7 @@
 
 GMStartMenu::GMStartMenu(const int maxWidth, const int maxHeight) :
 gameMode(maxWidth, maxHeight),
-m_menuManager(0, 0, maxWidth, maxHeight, eColor::primary)
+m_menuManager(0, 0, maxWidth, maxHeight, eColors::primary)
 {
     //MARK: - StartMenu observers
     menu MENU;

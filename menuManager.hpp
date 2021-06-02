@@ -12,7 +12,7 @@ class menuManager : public UIManager {
     observer<menu> m_observer;
     
 public:
-    menuManager(const long beginX, const long beginY, const long endX, const long endY, eColor bgColor);
+    menuManager(const long beginX, const long beginY, const long endX, const long endY, eColors bgColor);
     
     void setMenu(menu&& menu);
     void draw(class engine* engine) override;

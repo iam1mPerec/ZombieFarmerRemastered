@@ -1,9 +1,12 @@
 #include "engine.hpp"
 #include "GMStartMenu.hpp"
 
-void engine::drawBorder(int x, int y, int w, int h, olc::Pixel pixel, int thickness) {
+const int engine::charHeight = 7;
+const int engine::charWidth = 4;
+
+void engine::drawBorder(int x, int y, int w, int h, enum eColors color, int thickness) {
     for (int i = 0; i < thickness; i++) {
-        DrawRect(x+i, y+i, w-2*i, h-2*i, pixel);
+        DrawRect(x + i, y + i, w - 2 * i, h - 2 * i, getColor(color));
     }
 }
 

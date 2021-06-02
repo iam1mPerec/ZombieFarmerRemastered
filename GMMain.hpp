@@ -14,7 +14,7 @@ class GMMain : public gameMode
     screenManager m_screenManager;
     tasksManager m_tasksManager;
     loggerManager m_loggerManager;
-    menuManager m_menuMenager;
+    menuManager m_menuManager;
 
 public:
     GMMain(const int maxWidth, const int maxHeight);
