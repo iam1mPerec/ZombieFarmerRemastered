@@ -1,10 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "UIManager.hpp"
+#include "UIElement.hpp"
 
 
-class tasksManager : public UIManager
+class tasksManager : public UIElement
 {
 	int m_maxItems;
 	std::vector<std::string> m_items;

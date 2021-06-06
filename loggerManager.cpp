@@ -2,7 +2,7 @@
 #include "engine.hpp"
 
 loggerManager::loggerManager(const long beginX, const long beginY, const long endX, const long endY, eColors color) :
-UIManager(beginX, beginY, endX, endY, color),
+UIElement(beginX, beginY, endX, endY, color),
 m_maxItems(0)
 {
 	m_padding = 16;
@@ -11,11 +11,17 @@ m_maxItems(0)
 
 //TODO: when implementing append insure that container size is not greater m_maxItems
 
+void loggerManager::print(std::string time, std::string log) {
+	m_items.push_back(time + "\t\t\t" + log);
+	if (m_items.size() > m_maxItems) m_items.pop_front();
+}
+
 void loggerManager::draw(engine* Engine) {
 	int size = m_items.size();
 	int end = std::min(m_maxItems, size);
 	int start = end == size ? 0 : size - end;
-	for (int i = 0; i < end; i++) {
-		Engine->DrawString(m_beginX + m_padding, m_beginY + (m_padding + engine::charHeight) * (i + 1), m_items[start + i]);
+	int i = 0;
+	for (auto item : m_items) {
+		drawString(Engine, i++, item);
 	}
 }

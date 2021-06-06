@@ -3,7 +3,7 @@
 #include "engine.hpp"
 
 tasksManager::tasksManager(const long beginX, const long beginY, const long endX, const long endY, eColors color) :
-	UIManager(beginX, beginY, endX, endY, color),
+	UIElement(beginX, beginY, endX, endY, color),
 	m_maxItems(0)
 {
 	m_padding = 16;

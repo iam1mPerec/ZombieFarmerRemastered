@@ -63,11 +63,11 @@ void GMStartMenu::quit() {
 }
 
 void GMStartMenu::up() {
-    m_menuManager.prev();
+    m_menuManager.up();
 }
 
 void GMStartMenu::down() {
-    m_menuManager.next();
+    m_menuManager.down();
 }
 
 GMStartMenu::~GMStartMenu() {

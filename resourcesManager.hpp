@@ -1,9 +1,9 @@
 #pragma once
-#include "UIManager.hpp"
+#include "UIElement.hpp"
 #include <array>
 #include <string>
 
-class resourcesManager : public UIManager
+class resourcesManager : public UIElement
 {
 	std::array<std::string, 4> m_resourcesNames;
 	std::array<int, 4> m_resources;

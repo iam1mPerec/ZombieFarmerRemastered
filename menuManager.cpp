@@ -3,7 +3,7 @@
 #include <iostream>
 
 menuManager::menuManager(const long beginX, const long beginY, const long endX, const long endY, eColors color) :
-UIManager(beginX, beginY, endX, endY, color),
+    UIElement(beginX, beginY, endX, endY, color),
 m_currentIndex(0)
 {
     m_padding = 8;
@@ -33,11 +33,13 @@ void menuManager::draw(engine* Engine) {
 
 //MARK: - controller
 void menuManager::submit() {
-    m_observer.dispatch(m_menuStack.top()->option(m_currentIndex), eSignals::click);
-    if (!m_menuStack.top()->option(m_currentIndex).getItemsCount()) return;
-    m_menuStack.push(&m_menuStack.top()->option(m_currentIndex));
-    m_currentIndex = 0;
-    m_menuStack.top()->option(m_currentIndex).setSelected(true);
+    auto sender = m_menuStack.top()->option(m_currentIndex);
+    if (m_menuStack.top()->option(m_currentIndex).getItemsCount()) {
+        m_menuStack.push(&m_menuStack.top()->option(m_currentIndex));
+        m_currentIndex = 0;
+        m_menuStack.top()->option(m_currentIndex).setSelected(true);
+    }
+    m_observer.dispatch(sender, eSignals::click);
 }
 
 void menuManager::quit() {
@@ -47,7 +49,7 @@ void menuManager::quit() {
     m_currentIndex = m_menuStack.top()->getSelected();
 }
 
-void menuManager::next() {
+void menuManager::down() {
     if(m_menuStack.top()->getItemsCount()) {
         m_menuStack.top()->option(m_currentIndex).setSelected(false);
 
@@ -57,7 +59,7 @@ void menuManager::next() {
     }
 }
 
-void menuManager::prev() {
+void menuManager::up() {
     if(m_menuStack.top()->getItemsCount()) {
         m_menuStack.top()->option(m_currentIndex).setSelected(false);
 

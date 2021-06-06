@@ -1,11 +1,11 @@
 #pragma once
 #include <stack>
-#include "UIManager.hpp"
+#include "UIElement.hpp"
 #include "menu.hpp"
 #include "observer.hpp"
 #include "eSignals.hpp"
 
-class menuManager : public UIManager {
+class menuManager : public UIElement {
     menu m_menu;
     int m_currentIndex;
     std::stack<menu*> m_menuStack;
@@ -17,10 +17,10 @@ public:
     void setMenu(menu&& menu);
     void draw(class engine* engine) override;
 
-    void submit();
-    void quit();
-    void next();
-    void prev();
+    void quit() override;
+    void submit() override;
+    void down() override;
+    void up() override;
   
     void checkCurrent(eSignals signal);
     const menu& connect(const menu& menu, eSignals signal, std::function<void(class menu&)> slot);

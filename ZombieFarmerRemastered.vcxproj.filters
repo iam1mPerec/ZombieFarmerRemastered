@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="gameMods">
-      <UniqueIdentifier>{71119cba-b8d7-4a57-a263-d569f48e8dc4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="engine">
       <UniqueIdentifier>{94e86d73-1abc-4903-bd0d-3bfe728ca8c1}</UniqueIdentifier>
     </Filter>
@@ -37,13 +34,22 @@
     <Filter Include="UI\tasks">
       <UniqueIdentifier>{b96def32-02cd-41bc-908c-f39eb89bf26f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="commodity">
+      <UniqueIdentifier>{3b0e9749-aaf9-4819-a718-299c860176ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\screen\screenModes">
+      <UniqueIdentifier>{8c270aae-9731-4648-b800-42050fca4d2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gameModes">
+      <UniqueIdentifier>{71119cba-b8d7-4a57-a263-d569f48e8dc4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameMode.cpp">
-      <Filter>gameMods</Filter>
+      <Filter>gameModes</Filter>
     </ClCompile>
     <ClCompile Include="GMStartMenu.cpp">
-      <Filter>gameMods</Filter>
+      <Filter>gameModes</Filter>
     </ClCompile>
     <ClCompile Include="menu.cpp">
       <Filter>UI\menu</Filter>
@@ -58,9 +64,9 @@
       <Filter>core</Filter>
     </ClCompile>
     <ClCompile Include="GMMain.cpp">
-      <Filter>gameMods</Filter>
+      <Filter>gameModes</Filter>
     </ClCompile>
-    <ClCompile Include="UIManager.cpp">
+    <ClCompile Include="UIElement.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="loggerManager.cpp">
@@ -78,13 +84,32 @@
     <ClCompile Include="timeManager.cpp">
       <Filter>UI\time</Filter>
     </ClCompile>
+    <ClCompile Include="plant.cpp">
+      <Filter>commodity</Filter>
+    </ClCompile>
+    <ClCompile Include="building.cpp">
+      <Filter>commodity</Filter>
+    </ClCompile>
+    <ClCompile Include="goods.cpp">
+      <Filter>commodity</Filter>
+    </ClCompile>
+    <ClCompile Include="screenMode.cpp">
+      <Filter>UI\screen\screenModes</Filter>
+    </ClCompile>
+    <ClCompile Include="SMMain.cpp">
+      <Filter>UI\screen\screenModes</Filter>
+    </ClCompile>
+    <ClCompile Include="SMInventory.cpp">
+      <Filter>UI\screen\screenModes</Filter>
+    </ClCompile>
+    <ClCompile Include="SMRoster.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameMode.hpp">
-      <Filter>gameMods</Filter>
+      <Filter>gameModes</Filter>
     </ClInclude>
     <ClInclude Include="GMStartMenu.hpp">
-      <Filter>gameMods</Filter>
+      <Filter>gameModes</Filter>
     </ClInclude>
     <ClInclude Include="menu.hpp">
       <Filter>UI\menu</Filter>
@@ -105,9 +130,9 @@
       <Filter>observer</Filter>
     </ClInclude>
     <ClInclude Include="GMMain.hpp">
-      <Filter>gameMods</Filter>
+      <Filter>gameModes</Filter>
     </ClInclude>
-    <ClInclude Include="UIManager.hpp">
+    <ClInclude Include="UIElement.hpp">
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="eColors.hpp">
@@ -128,9 +153,31 @@
     <ClInclude Include="timeManager.hpp">
       <Filter>UI\time</Filter>
     </ClInclude>
-    <ClInclude Include="eResources.h">
+    <ClInclude Include="eResources.hpp">
       <Filter>enums</Filter>
     </ClInclude>
+    <ClInclude Include="plant.hpp">
+      <Filter>commodity</Filter>
+    </ClInclude>
+    <ClInclude Include="building.hpp">
+      <Filter>commodity</Filter>
+    </ClInclude>
+    <ClInclude Include="goods.hpp">
+      <Filter>commodity</Filter>
+    </ClInclude>
+    <ClInclude Include="eScreenModes.hpp">
+      <Filter>enums</Filter>
+    </ClInclude>
+    <ClInclude Include="screenMode.hpp">
+      <Filter>UI\screen\screenModes</Filter>
+    </ClInclude>
+    <ClInclude Include="SMMain.hpp">
+      <Filter>UI\screen\screenModes</Filter>
+    </ClInclude>
+    <ClInclude Include="SMInventory.hpp">
+      <Filter>UI\screen\screenModes</Filter>
+    </ClInclude>
+    <ClInclude Include="SMRoster.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include=".gitignore" />
